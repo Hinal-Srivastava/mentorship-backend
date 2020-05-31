@@ -121,10 +121,9 @@ class LocalConfig(BaseConfig):
 
     DEBUG = True
 
-    # Using a local sqlite database
-    SQLALCHEMY_DATABASE_URI = "sqlite:///local_data.db"
-
-
+    # Using a local postgre database
+    SQLALCHEMY_DATABASE_URI = "postgresql:///bit_schema"
+    
 class TestingConfig(BaseConfig):
     """Testing configuration."""
 
@@ -132,7 +131,7 @@ class TestingConfig(BaseConfig):
     MOCK_EMAIL = True
 
     # Use in-memory SQLite database for testing
-    SQLALCHEMY_DATABASE_URI = "sqlite://"
+    SQLALCHEMY_DATABASE_URI = "postgresql:///bit_schema_test"
 
 
 def get_env_config() -> str:
